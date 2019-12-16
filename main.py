@@ -61,7 +61,7 @@ def main():
 		sys.exit(2)
 	if len(sys.argv) == 1:
 		try:
-			with open('cin.fs19', 'w+') as f:
+			with open('kb.fs19', 'w+') as f:
 				f.write(raw_input())
 				cin = f.name
 		except IOError as x:
@@ -72,14 +72,14 @@ def main():
 		filename = validate_file(str(cin))
 		datum = parsing.parser(filename)
 		#treetest.printing(datum,0)
-		virtmach.virtual_machine(datum,0)
+		virtmach.virtual_machine(filename,datum,0)
 		print filename, 'makes proper use of its variables...'
 	if len(sys.argv) == 2:
 		filename = validate_file(str(sys.argv[1]))
 		print filename, 'validated...'
 		datum = parsing.parser(filename)
 		#treetest.printing(datum,0)
-		virtmach.virtual_machine(datum,0)
+		virtmach.virtual_machine(filename,datum,0)
 		print filename, 'initialized variables properly...'
 
 # our program's entry point		
